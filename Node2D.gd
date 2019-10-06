@@ -42,10 +42,10 @@ func get_touch(event):
 	var touch_event = {}
 	var rel = event.relative
 	
-	touch_event['x_dir'] = 'right' if rel.x > 0 else 'left' if rel.x < 0 else 'neutral'
-	touch_event['y_dir'] = 'down' if rel.y > 0 else 'up' if rel.y < 0 else 'neutral'
-	
-	return touch_event
+	return {
+		'x_dir': 'right' if rel.x > 0 else 'left' if rel.x < 0 else 'neutral',
+		'y_dir': 'down' if rel.y > 0 else 'up' if rel.y < 0 else 'neutral'	
+	}
 
 func _handle_swipe_direction_coords(event):
 	$CurrentTile.text += " left: %s, top: %s" % [event.relative.x, event.relative.y]
